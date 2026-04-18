@@ -8,18 +8,22 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore MovieCatalogTests.slnx
+
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ExamMovieCatalog_2026.slnx --no-restore
+
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ExamMovieCatalog_2026.slnx --no-build --verbosity normal
