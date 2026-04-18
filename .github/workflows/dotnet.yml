@@ -20,7 +20,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies
-      run: dotnet restore MovieCatalogTests.slnx
+      run: dotnet restore ExamMovieCatalog_2026.slnx
 
     - name: Build
       run: dotnet build ExamMovieCatalog_2026.slnx --no-restore
